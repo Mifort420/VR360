@@ -1,0 +1,3309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--projecttitle-->
+    <title>ARC360</title>
+    <!--projecttitle-end-->
+    <!--projectdescription-->
+    <meta name="description" content="New 3Sixty Virtual Tour Project" />
+    <!--projectdescription-end-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- Insert this line above script imports  -->
+    <script>
+      if (typeof module === "object") {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
+
+    <script src="imagedata.js"></script>
+    <script src="jquery.js"></script>
+    <script src="three.min.js"></script>
+    <script src="panolens.min.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>
+      if (window.module) module = window.module;
+    </script>
+
+    <style>
+
+
+
+      /* SCROLLBAR STYLING */
+      /* width */
+      ::-webkit-scrollbar {
+      	width: 0.25em;
+      	height: 0.25em;
+      }
+      /* Track */
+      ::-webkit-scrollbar-track {
+      	background: #2c3643;
+      }
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+      	background: #0d9e59;
+      	transition: background .5s;
+      }
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+      	background: #00e075;
+      }
+
+
+      html, body {
+      	margin: 0;
+      	width: 100%;
+      	height: 100%;
+      	overflow: hidden;
+      	background-color: #000;
+      	color; black;
+      }
+
+      a:link, a:visited{
+      	color: #bdc3c7;
+      }
+
+      .fullwrapper{
+      	position: fixed;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	bottom: 0;
+      	background-color: black;
+      }
+
+      #container {
+                   width: 100%;
+                   height: 100%;
+               }
+
+      #tmp{
+      	position: fixed;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	bottom: 0;
+      	padding: 3em;
+      	background-color: rgba(0,0,0,.5);
+      	backdrop-filter: blur(5px);
+      	display: none;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div id="container" style="color: black"></div>
+
+    <!--customhtml-->
+    <div class="customhotspot" id="IMG_0544">
+      <div
+        onclick="chclickinfospotIMG_05440();"
+        id="infospotIMG_05440"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0545">
+      <div
+        onclick="chclickinfospotIMG_05450();"
+        id="infospotIMG_05450"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05451();"
+        id="infospotIMG_05451"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0546">
+      <div
+        onclick="chclickinfospotIMG_05460();"
+        id="infospotIMG_05460"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05461();"
+        id="infospotIMG_05461"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0548">
+      <div
+        onclick="chclickinfospotIMG_05480();"
+        id="infospotIMG_05480"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05481();"
+        id="infospotIMG_05481"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0549">
+      <div
+        onclick="chclickinfospotIMG_05490();"
+        id="infospotIMG_05490"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05491();"
+        id="infospotIMG_05491"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0616_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0616_cleanup0();"
+        id="infospotIMG_0616_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0616_cleanup1();"
+        id="infospotIMG_0616_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows02.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0617_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0617_cleanup0();"
+        id="infospotIMG_0617_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0617_cleanup1();"
+        id="infospotIMG_0617_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0620_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0620_cleanup0();"
+        id="infospotIMG_0620_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows02.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0620_cleanup1();"
+        id="infospotIMG_0620_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0621_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0621_cleanup0();"
+        id="infospotIMG_0621_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0621_cleanup1();"
+        id="infospotIMG_0621_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0622_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0622_cleanup0();"
+        id="infospotIMG_0622_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0622_cleanup1();"
+        id="infospotIMG_0622_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0623_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0623_cleanup0();"
+        id="infospotIMG_0623_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0623_cleanup1();"
+        id="infospotIMG_0623_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0624_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0624_cleanup0();"
+        id="infospotIMG_0624_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0624_cleanup1();"
+        id="infospotIMG_0624_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0625_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0625_cleanup0();"
+        id="infospotIMG_0625_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0625_cleanup1();"
+        id="infospotIMG_0625_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0625_cleanup2();"
+        id="infospotIMG_0625_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0626_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0626_cleanup0();"
+        id="infospotIMG_0626_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0627_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0627_cleanup0();"
+        id="infospotIMG_0627_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0627_cleanup1();"
+        id="infospotIMG_0627_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0628_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0628_cleanup0();"
+        id="infospotIMG_0628_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0628_cleanup1();"
+        id="infospotIMG_0628_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0629_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0629_cleanup0();"
+        id="infospotIMG_0629_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0629_cleanup1();"
+        id="infospotIMG_0629_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0629_cleanup2();"
+        id="infospotIMG_0629_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0630_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0630_cleanup0();"
+        id="infospotIMG_0630_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0630_cleanup1();"
+        id="infospotIMG_0630_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0630_cleanup2();"
+        id="infospotIMG_0630_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0631_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0631_cleanup0();"
+        id="infospotIMG_0631_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0631_cleanup1();"
+        id="infospotIMG_0631_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0632_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0632_cleanup0();"
+        id="infospotIMG_0632_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0632_cleanup1();"
+        id="infospotIMG_0632_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0633_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0633_cleanup0();"
+        id="infospotIMG_0633_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0633_cleanup1();"
+        id="infospotIMG_0633_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0634_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0634_cleanup0();"
+        id="infospotIMG_0634_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0634_cleanup1();"
+        id="infospotIMG_0634_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0634_cleanup2();"
+        id="infospotIMG_0634_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0635_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0635_cleanup0();"
+        id="infospotIMG_0635_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0637_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0637_cleanup0();"
+        id="infospotIMG_0637_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0638_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0638_cleanup0();"
+        id="infospotIMG_0638_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0638_cleanup1();"
+        id="infospotIMG_0638_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0638_cleanup2();"
+        id="infospotIMG_0638_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0638_cleanup3();"
+        id="infospotIMG_0638_cleanup3"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0639_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0639_cleanup0();"
+        id="infospotIMG_0639_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0639_cleanup1();"
+        id="infospotIMG_0639_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0640_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0640_cleanup0();"
+        id="infospotIMG_0640_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0640_cleanup1();"
+        id="infospotIMG_0640_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0640_cleanup2();"
+        id="infospotIMG_0640_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0641_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0641_cleanup0();"
+        id="infospotIMG_0641_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0642_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0642_cleanup0();"
+        id="infospotIMG_0642_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0642_cleanup1();"
+        id="infospotIMG_0642_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0642_cleanup2();"
+        id="infospotIMG_0642_cleanup2"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0643_cleanup">
+      <div
+        onclick="chclickinfospotIMG_0643_cleanup0();"
+        id="infospotIMG_0643_cleanup0"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_0643_cleanup1();"
+        id="infospotIMG_0643_cleanup1"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0561">
+      <div
+        onclick="chclickinfospotIMG_05610();"
+        id="infospotIMG_05610"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05611();"
+        id="infospotIMG_05611"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows02.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0560">
+      <div
+        onclick="chclickinfospotIMG_05600();"
+        id="infospotIMG_05600"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05601();"
+        id="infospotIMG_05601"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0559">
+      <div
+        onclick="chclickinfospotIMG_05590();"
+        id="infospotIMG_05590"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05591();"
+        id="infospotIMG_05591"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0558">
+      <div
+        onclick="chclickinfospotIMG_05580();"
+        id="infospotIMG_05580"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05581();"
+        id="infospotIMG_05581"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0557">
+      <div
+        onclick="chclickinfospotIMG_05570();"
+        id="infospotIMG_05570"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05571();"
+        id="infospotIMG_05571"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0555">
+      <div
+        onclick="chclickinfospotIMG_05550();"
+        id="infospotIMG_05550"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05551();"
+        id="infospotIMG_05551"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05552();"
+        id="infospotIMG_05552"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0554">
+      <div
+        onclick="chclickinfospotIMG_05540();"
+        id="infospotIMG_05540"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05541();"
+        id="infospotIMG_05541"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0553">
+      <div
+        onclick="chclickinfospotIMG_05530();"
+        id="infospotIMG_05530"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05531();"
+        id="infospotIMG_05531"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0551">
+      <div
+        onclick="chclickinfospotIMG_05510();"
+        id="infospotIMG_05510"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05511();"
+        id="infospotIMG_05511"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows04.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05512();"
+        id="infospotIMG_05512"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="IMG_0550">
+      <div
+        onclick="chclickinfospotIMG_05500();"
+        id="infospotIMG_05500"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows01.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+      <div
+        onclick="chclickinfospotIMG_05501();"
+        id="infospotIMG_05501"
+        style="position: fixed; top: 0; left: 0; cursor: pointer"
+      >
+        <img
+          src="customhotspots/Arrows03.png"
+          style="width: 64px; height: 64px"
+        />
+      </div>
+    </div>
+    <div class="customhotspot" id="1"></div>
+    <!--customhtml-end-->
+
+    <div id="tmp">
+      <div
+        style="
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          overflow-y: auto;
+          box-sizing: border-box;
+          position: relative;
+        "
+        id="tmpcontent"
+      ></div>
+      <div class="mediaclosebutton" onclick="hideTemp()">
+        <i class="fa fa-times-circle"></i>
+      </div>
+    </div>
+
+    <div
+      id="loading"
+      class="fullwrapper"
+      style="display: table; width: 100%; height: 100%"
+    >
+      <div
+        style="
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          color: white;
+          font-size: 30px;
+          padding: 50px;
+        "
+      >
+        <!--loadingtext-->Loading...<!--loadingtext-end-->
+      </div>
+    </div>
+
+    <script>
+
+                  var container = document.querySelector( '#container' );
+      			/*panolens*/
+
+      var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+
+      /*panolens-end*/
+
+      			viewer.addUpdateCallback(function(){});
+
+      			/*panoramas*/
+
+      var IMG_0544 = new PANOLENS.ImagePanorama( "panoramas/IMG0544.jpg" );
+      			IMG_0544.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0544.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0544.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05440 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05440.position.set( 4800.46, -1370.76, -76.11 );
+      					infospotIMG_05440.visible = false;
+      					IMG_0544.add(infospotIMG_05440);
+
+      infospotIMG_05440.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0545');
+
+      });
+
+      viewer.add( IMG_0544 );
+
+      var IMG_0545 = new PANOLENS.ImagePanorama( "panoramas/IMG0545.jpg" );
+      			IMG_0545.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0545.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0545.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05450 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05450.position.set( -4457.23, -1219.09, 1895.81 );
+      					infospotIMG_05450.visible = false;
+      					IMG_0545.add(infospotIMG_05450);
+
+      infospotIMG_05450.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0544');
+
+      });
+
+      var infospotIMG_05451 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05451.position.set( 4893.23, -997.91, 43.89 );
+      					infospotIMG_05451.visible = false;
+      					IMG_0545.add(infospotIMG_05451);
+
+      infospotIMG_05451.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0546');
+
+      });
+
+      viewer.add( IMG_0545 );
+
+      var IMG_0546 = new PANOLENS.ImagePanorama( "panoramas/IMG_0546.jpg" );
+      			IMG_0546.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0546.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0546.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05460 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05460.position.set( -4727.26, -1551.60, 488.77 );
+      					infospotIMG_05460.visible = false;
+      					IMG_0546.add(infospotIMG_05460);
+
+      infospotIMG_05460.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0545');
+
+      });
+
+      var infospotIMG_05461 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05461.position.set( 4905.27, -912.43, 138.63 );
+      					infospotIMG_05461.visible = false;
+      					IMG_0546.add(infospotIMG_05461);
+
+      infospotIMG_05461.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0548');
+
+      });
+
+      viewer.add( IMG_0546 );
+
+      var IMG_0548 = new PANOLENS.ImagePanorama( "panoramas/IMG_0548.jpg" );
+      			IMG_0548.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0548.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0548.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05480 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05480.position.set( 4719.99, -1175.84, 1134.39 );
+      					infospotIMG_05480.visible = false;
+      					IMG_0548.add(infospotIMG_05480);
+
+      infospotIMG_05480.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0549');
+
+      });
+
+      var infospotIMG_05481 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05481.position.set( -4645.71, -1777.47, 454.88 );
+      					infospotIMG_05481.visible = false;
+      					IMG_0548.add(infospotIMG_05481);
+
+      infospotIMG_05481.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0546');
+
+      });
+
+      viewer.add( IMG_0548 );
+
+      var IMG_0549 = new PANOLENS.ImagePanorama( "panoramas/IMG_0549.jpg" );
+      			IMG_0549.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0549.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0549.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05490 = new PANOLENS.Infospot( 512, hotspotIcons[10].data, true );
+      					infospotIMG_05490.position.set( 4328.56, -407.56, 2465.20 );
+      					infospotIMG_05490.visible = false;
+      					IMG_0549.add(infospotIMG_05490);
+
+      infospotIMG_05490.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0616_cleanup');
+
+      });
+
+      var infospotIMG_05491 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05491.position.set( -3121.94, -1206.39, 3705.16 );
+      					infospotIMG_05491.visible = false;
+      					IMG_0549.add(infospotIMG_05491);
+
+      infospotIMG_05491.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0548');
+
+      });
+
+      viewer.add( IMG_0549 );
+
+      var IMG_0616_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0616_cleanup.jpg" );
+      			IMG_0616_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0616_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0616_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0616_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0616_cleanup0.position.set( -4125.18, -1494.80, -2392.89 );
+      					infospotIMG_0616_cleanup0.visible = false;
+      					IMG_0616_cleanup.add(infospotIMG_0616_cleanup0);
+
+      infospotIMG_0616_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0617_cleanup');
+
+      });
+
+      var infospotIMG_0616_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[2].data, true );
+      					infospotIMG_0616_cleanup1.position.set( 4299.45, -584.21, -2476.33 );
+      					infospotIMG_0616_cleanup1.visible = false;
+      					IMG_0616_cleanup.add(infospotIMG_0616_cleanup1);
+
+      infospotIMG_0616_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0549');
+
+      });
+
+      viewer.add( IMG_0616_cleanup );
+
+      var IMG_0617_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0617_cleanup.jpg" );
+      			IMG_0617_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0617_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0617_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0617_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[10].data, true );
+      					infospotIMG_0617_cleanup0.position.set( -4964.19, -551.97, 28.63 );
+      					infospotIMG_0617_cleanup0.visible = false;
+      					IMG_0617_cleanup.add(infospotIMG_0617_cleanup0);
+
+      infospotIMG_0617_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0620_cleanup');
+
+      });
+
+      var infospotIMG_0617_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0617_cleanup1.position.set( 1131.35, -1126.73, -4731.64 );
+      					infospotIMG_0617_cleanup1.visible = false;
+      					IMG_0617_cleanup.add(infospotIMG_0617_cleanup1);
+
+      infospotIMG_0617_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0616_cleanup');
+
+      });
+
+      viewer.add( IMG_0617_cleanup );
+
+      var IMG_0620_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0620_cleanup.jpg" );
+      			IMG_0620_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0620_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0620_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0620_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[2].data, true );
+      					infospotIMG_0620_cleanup0.position.set( -726.75, -1257.80, 4774.77 );
+      					infospotIMG_0620_cleanup0.visible = false;
+      					IMG_0620_cleanup.add(infospotIMG_0620_cleanup0);
+
+      infospotIMG_0620_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0617_cleanup');
+
+      ChangePanorama('IMG_0617_cleanup');
+
+      });
+
+      var infospotIMG_0620_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0620_cleanup1.position.set( -4840.97, -733.43, 997.65 );
+      					infospotIMG_0620_cleanup1.visible = false;
+      					IMG_0620_cleanup.add(infospotIMG_0620_cleanup1);
+
+      infospotIMG_0620_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0621_cleanup');
+
+      });
+
+      viewer.add( IMG_0620_cleanup );
+
+      var IMG_0621_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0621_cleanup.jpg" );
+      			IMG_0621_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0621_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0621_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0621_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0621_cleanup0.position.set( -4847.67, -1187.46, 161.74 );
+      					infospotIMG_0621_cleanup0.visible = false;
+      					IMG_0621_cleanup.add(infospotIMG_0621_cleanup0);
+
+      infospotIMG_0621_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0622_cleanup');
+
+      });
+
+      var infospotIMG_0621_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0621_cleanup1.position.set( 4949.84, -683.73, 4.87 );
+      					infospotIMG_0621_cleanup1.visible = false;
+      					IMG_0621_cleanup.add(infospotIMG_0621_cleanup1);
+
+      infospotIMG_0621_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0620_cleanup');
+
+      });
+
+      viewer.add( IMG_0621_cleanup );
+
+      var IMG_0622_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0622_cleanup.jpg" );
+      			IMG_0622_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0622_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0622_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0622_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0622_cleanup0.position.set( -149.45, -886.33, -4909.89 );
+      					infospotIMG_0622_cleanup0.visible = false;
+      					IMG_0622_cleanup.add(infospotIMG_0622_cleanup0);
+
+      infospotIMG_0622_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0621_cleanup');
+
+      });
+
+      var infospotIMG_0622_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0622_cleanup1.position.set( -4865.69, -1039.56, 411.34 );
+      					infospotIMG_0622_cleanup1.visible = false;
+      					IMG_0622_cleanup.add(infospotIMG_0622_cleanup1);
+
+      infospotIMG_0622_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0623_cleanup');
+
+      });
+
+      viewer.add( IMG_0622_cleanup );
+
+      var IMG_0623_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0623_cleanup.jpg" );
+      			IMG_0623_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0623_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0623_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0623_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0623_cleanup0.position.set( 4912.28, -862.18, -195.46 );
+      					infospotIMG_0623_cleanup0.visible = false;
+      					IMG_0623_cleanup.add(infospotIMG_0623_cleanup0);
+
+      infospotIMG_0623_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0622_cleanup');
+
+      });
+
+      var infospotIMG_0623_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_0623_cleanup1.position.set( -1919.42, -1167.78, -4463.64 );
+      					infospotIMG_0623_cleanup1.visible = false;
+      					IMG_0623_cleanup.add(infospotIMG_0623_cleanup1);
+
+      infospotIMG_0623_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0624_cleanup');
+
+      });
+
+      viewer.add( IMG_0623_cleanup );
+
+      var IMG_0624_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0624_cleanup.jpg" );
+      			IMG_0624_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0624_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0624_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0624_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0624_cleanup0.position.set( 4745.13, -1399.52, -658.74 );
+      					infospotIMG_0624_cleanup0.visible = false;
+      					IMG_0624_cleanup.add(infospotIMG_0624_cleanup0);
+
+      infospotIMG_0624_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0623_cleanup');
+
+      });
+
+      var infospotIMG_0624_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0624_cleanup1.position.set( -4929.92, -821.33, 13.93 );
+      					infospotIMG_0624_cleanup1.visible = false;
+      					IMG_0624_cleanup.add(infospotIMG_0624_cleanup1);
+
+      infospotIMG_0624_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0625_cleanup');
+
+      });
+
+      viewer.add( IMG_0624_cleanup );
+
+      var IMG_0625_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0625_cleanup.jpg" );
+      			IMG_0625_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0625_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0625_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0625_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0625_cleanup0.position.set( 4960.52, -573.29, 50.49 );
+      					infospotIMG_0625_cleanup0.visible = false;
+      					IMG_0625_cleanup.add(infospotIMG_0625_cleanup0);
+
+      infospotIMG_0625_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0624_cleanup');
+
+      });
+
+      var infospotIMG_0625_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0625_cleanup1.position.set( -4867.92, -1012.95, -469.63 );
+      					infospotIMG_0625_cleanup1.visible = false;
+      					IMG_0625_cleanup.add(infospotIMG_0625_cleanup1);
+
+      infospotIMG_0625_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0626_cleanup');
+
+      });
+
+      var infospotIMG_0625_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_0625_cleanup2.position.set( 224.85, -273.64, 4977.46 );
+      					infospotIMG_0625_cleanup2.visible = false;
+      					IMG_0625_cleanup.add(infospotIMG_0625_cleanup2);
+
+      infospotIMG_0625_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0627_cleanup');
+
+      });
+
+      viewer.add( IMG_0625_cleanup );
+
+      var IMG_0626_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0626_cleanup.jpg" );
+      			IMG_0626_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0626_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0626_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0626_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0626_cleanup0.position.set( 4937.20, -575.74, -489.98 );
+      					infospotIMG_0626_cleanup0.visible = false;
+      					IMG_0626_cleanup.add(infospotIMG_0626_cleanup0);
+
+      infospotIMG_0626_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0625_cleanup');
+
+      });
+
+      viewer.add( IMG_0626_cleanup );
+
+      var IMG_0627_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0627_cleanup.jpg" );
+      			IMG_0627_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0627_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0627_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0627_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0627_cleanup0.position.set( 4874.37, -748.66, -775.22 );
+      					infospotIMG_0627_cleanup0.visible = false;
+      					IMG_0627_cleanup.add(infospotIMG_0627_cleanup0);
+
+      infospotIMG_0627_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0625_cleanup');
+
+      });
+
+      var infospotIMG_0627_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0627_cleanup1.position.set( -4909.38, -890.00, 145.20 );
+      					infospotIMG_0627_cleanup1.visible = false;
+      					IMG_0627_cleanup.add(infospotIMG_0627_cleanup1);
+
+      infospotIMG_0627_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0628_cleanup');
+
+      });
+
+      viewer.add( IMG_0627_cleanup );
+
+      var IMG_0628_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0628_cleanup.jpg" );
+      			IMG_0628_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0628_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0628_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0628_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0628_cleanup0.position.set( 4878.19, -156.01, -1062.75 );
+      					infospotIMG_0628_cleanup0.visible = false;
+      					IMG_0628_cleanup.add(infospotIMG_0628_cleanup0);
+
+      infospotIMG_0628_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0627_cleanup');
+
+      });
+
+      var infospotIMG_0628_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0628_cleanup1.position.set( -4905.95, -645.42, -653.89 );
+      					infospotIMG_0628_cleanup1.visible = false;
+      					IMG_0628_cleanup.add(infospotIMG_0628_cleanup1);
+
+      infospotIMG_0628_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0629_cleanup');
+
+      });
+
+      viewer.add( IMG_0628_cleanup );
+
+      var IMG_0629_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0629_cleanup.jpg" );
+      			IMG_0629_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0629_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0629_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0629_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0629_cleanup0.position.set( 4907.63, -459.10, -784.05 );
+      					infospotIMG_0629_cleanup0.visible = false;
+      					IMG_0629_cleanup.add(infospotIMG_0629_cleanup0);
+
+      infospotIMG_0629_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0628_cleanup');
+
+      });
+
+      var infospotIMG_0629_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_0629_cleanup1.position.set( -1544.65, -606.73, -4711.81 );
+      					infospotIMG_0629_cleanup1.visible = false;
+      					IMG_0629_cleanup.add(infospotIMG_0629_cleanup1);
+
+      infospotIMG_0629_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0630_cleanup');
+
+      });
+
+      var infospotIMG_0629_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_0629_cleanup2.position.set( -530.44, -199.76, 4963.44 );
+      					infospotIMG_0629_cleanup2.visible = false;
+      					IMG_0629_cleanup.add(infospotIMG_0629_cleanup2);
+
+      infospotIMG_0629_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0643_cleanup');
+
+      });
+
+      viewer.add( IMG_0629_cleanup );
+
+      var IMG_0630_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0630_cleanup.jpg" );
+      			IMG_0630_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0630_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0630_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0630_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0630_cleanup0.position.set( -1563.03, -544.27, -4712.66 );
+      					infospotIMG_0630_cleanup0.visible = false;
+      					IMG_0630_cleanup.add(infospotIMG_0630_cleanup0);
+
+      infospotIMG_0630_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0629_cleanup');
+
+      });
+
+      var infospotIMG_0630_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0630_cleanup1.position.set( 972.75, -605.69, 4860.20 );
+      					infospotIMG_0630_cleanup1.visible = false;
+      					IMG_0630_cleanup.add(infospotIMG_0630_cleanup1);
+
+      infospotIMG_0630_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0631_cleanup');
+
+      });
+
+      var infospotIMG_0630_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[10].data, true );
+      					infospotIMG_0630_cleanup2.position.set( 4856.90, -207.25, -1134.42 );
+      					infospotIMG_0630_cleanup2.visible = false;
+      					IMG_0630_cleanup.add(infospotIMG_0630_cleanup2);
+
+      infospotIMG_0630_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0561');
+
+      });
+
+      viewer.add( IMG_0630_cleanup );
+
+      var IMG_0631_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0631_cleanup.jpg" );
+      			IMG_0631_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0631_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0631_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0631_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0631_cleanup0.position.set( 281.23, -1265.08, -4819.51 );
+      					infospotIMG_0631_cleanup0.visible = false;
+      					IMG_0631_cleanup.add(infospotIMG_0631_cleanup0);
+
+      infospotIMG_0631_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0630_cleanup');
+
+      });
+
+      var infospotIMG_0631_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0631_cleanup1.position.set( 4907.12, -408.64, -825.37 );
+      					infospotIMG_0631_cleanup1.visible = false;
+      					IMG_0631_cleanup.add(infospotIMG_0631_cleanup1);
+
+      infospotIMG_0631_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0632_cleanup');
+
+      });
+
+      viewer.add( IMG_0631_cleanup );
+
+      var IMG_0632_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0632_cleanup.jpg" );
+      			IMG_0632_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0632_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0632_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0632_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0632_cleanup0.position.set( -4974.57, -236.54, -307.94 );
+      					infospotIMG_0632_cleanup0.visible = false;
+      					IMG_0632_cleanup.add(infospotIMG_0632_cleanup0);
+
+      infospotIMG_0632_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0631_cleanup');
+
+      });
+
+      var infospotIMG_0632_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0632_cleanup1.position.set( 4947.53, -365.74, -589.26 );
+      					infospotIMG_0632_cleanup1.visible = false;
+      					IMG_0632_cleanup.add(infospotIMG_0632_cleanup1);
+
+      infospotIMG_0632_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0633_cleanup');
+
+      });
+
+      viewer.add( IMG_0632_cleanup );
+
+      var IMG_0633_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0633_cleanup.jpg" );
+      			IMG_0633_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0633_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0633_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0633_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0633_cleanup0.position.set( 195.83, -328.82, -4976.82 );
+      					infospotIMG_0633_cleanup0.visible = false;
+      					IMG_0633_cleanup.add(infospotIMG_0633_cleanup0);
+
+      infospotIMG_0633_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0632_cleanup');
+
+      });
+
+      var infospotIMG_0633_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0633_cleanup1.position.set( 4932.60, -754.51, -173.93 );
+      					infospotIMG_0633_cleanup1.visible = false;
+      					IMG_0633_cleanup.add(infospotIMG_0633_cleanup1);
+
+      infospotIMG_0633_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0634_cleanup');
+
+      });
+
+      viewer.add( IMG_0633_cleanup );
+
+      var IMG_0634_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0634_cleanup.jpg" );
+      			IMG_0634_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0634_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0634_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0634_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0634_cleanup0.position.set( 4828.54, -1161.87, -557.16 );
+      					infospotIMG_0634_cleanup0.visible = false;
+      					IMG_0634_cleanup.add(infospotIMG_0634_cleanup0);
+
+      infospotIMG_0634_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0633_cleanup');
+
+      });
+
+      var infospotIMG_0634_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0634_cleanup1.position.set( -103.96, -876.55, -4914.22 );
+      					infospotIMG_0634_cleanup1.visible = false;
+      					IMG_0634_cleanup.add(infospotIMG_0634_cleanup1);
+
+      infospotIMG_0634_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0635_cleanup');
+
+      });
+
+      var infospotIMG_0634_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0634_cleanup2.position.set( -4978.64, -398.47, 99.60 );
+      					infospotIMG_0634_cleanup2.visible = false;
+      					IMG_0634_cleanup.add(infospotIMG_0634_cleanup2);
+
+      infospotIMG_0634_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0638_cleanup');
+
+      });
+
+      viewer.add( IMG_0634_cleanup );
+
+      var IMG_0635_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0635_cleanup.jpg" );
+      			IMG_0635_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0635_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0635_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0635_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0635_cleanup0.position.set( -4296.74, -755.81, 2436.98 );
+      					infospotIMG_0635_cleanup0.visible = false;
+      					IMG_0635_cleanup.add(infospotIMG_0635_cleanup0);
+
+      infospotIMG_0635_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0634_cleanup');
+
+      });
+
+      viewer.add( IMG_0635_cleanup );
+
+      var IMG_0637_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0637_cleanup.jpg" );
+      			IMG_0637_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0637_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0637_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0637_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0637_cleanup0.position.set( 4865.45, -907.05, -647.68 );
+      					infospotIMG_0637_cleanup0.visible = false;
+      					IMG_0637_cleanup.add(infospotIMG_0637_cleanup0);
+
+      infospotIMG_0637_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0638_cleanup');
+
+      });
+
+      viewer.add( IMG_0637_cleanup );
+
+      var IMG_0638_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0638_cleanup.jpg" );
+      			IMG_0638_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0638_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0638_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0638_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0638_cleanup0.position.set( -192.38, -696.24, -4938.53 );
+      					infospotIMG_0638_cleanup0.visible = false;
+      					IMG_0638_cleanup.add(infospotIMG_0638_cleanup0);
+
+      infospotIMG_0638_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0634_cleanup');
+
+      });
+
+      var infospotIMG_0638_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_0638_cleanup1.position.set( -1856.29, -611.76, -4591.55 );
+      					infospotIMG_0638_cleanup1.visible = false;
+      					IMG_0638_cleanup.add(infospotIMG_0638_cleanup1);
+
+      infospotIMG_0638_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0637_cleanup');
+
+      });
+
+      var infospotIMG_0638_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0638_cleanup2.position.set( 275.19, -1045.34, 4871.67 );
+      					infospotIMG_0638_cleanup2.visible = false;
+      					IMG_0638_cleanup.add(infospotIMG_0638_cleanup2);
+
+      infospotIMG_0638_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0639_cleanup');
+
+      });
+
+      var infospotIMG_0638_cleanup3 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_0638_cleanup3.position.set( 4936.82, -696.93, -223.43 );
+      					infospotIMG_0638_cleanup3.visible = false;
+      					IMG_0638_cleanup.add(infospotIMG_0638_cleanup3);
+
+      infospotIMG_0638_cleanup3.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0642_cleanup');
+
+      });
+
+      viewer.add( IMG_0638_cleanup );
+
+      var IMG_0639_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0639_cleanup.jpg" );
+      			IMG_0639_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0639_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0639_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0639_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0639_cleanup0.position.set( -302.73, -761.82, -4924.98 );
+      					infospotIMG_0639_cleanup0.visible = false;
+      					IMG_0639_cleanup.add(infospotIMG_0639_cleanup0);
+
+      infospotIMG_0639_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0638_cleanup');
+
+      });
+
+      var infospotIMG_0639_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0639_cleanup1.position.set( 4900.23, -933.93, -153.07 );
+      					infospotIMG_0639_cleanup1.visible = false;
+      					IMG_0639_cleanup.add(infospotIMG_0639_cleanup1);
+
+      infospotIMG_0639_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0640_cleanup');
+
+      });
+
+      viewer.add( IMG_0639_cleanup );
+
+      var IMG_0640_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0640_cleanup.jpg" );
+      			IMG_0640_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0640_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0640_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0640_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0640_cleanup0.position.set( -4742.75, -1477.04, 534.25 );
+      					infospotIMG_0640_cleanup0.visible = false;
+      					IMG_0640_cleanup.add(infospotIMG_0640_cleanup0);
+
+      infospotIMG_0640_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0639_cleanup');
+
+      });
+
+      var infospotIMG_0640_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0640_cleanup1.position.set( 181.80, -876.29, 4910.19 );
+      					infospotIMG_0640_cleanup1.visible = false;
+      					IMG_0640_cleanup.add(infospotIMG_0640_cleanup1);
+
+      infospotIMG_0640_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0641_cleanup');
+
+      });
+
+      var infospotIMG_0640_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_0640_cleanup2.position.set( -509.79, -1173.00, -4833.32 );
+      					infospotIMG_0640_cleanup2.visible = false;
+      					IMG_0640_cleanup.add(infospotIMG_0640_cleanup2);
+
+      infospotIMG_0640_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0642_cleanup');
+
+      });
+
+      viewer.add( IMG_0640_cleanup );
+
+      var IMG_0641_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0641_cleanup.jpg" );
+      			IMG_0641_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0641_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0641_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0641_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0641_cleanup0.position.set( -628.23, -1274.44, -4785.63 );
+      					infospotIMG_0641_cleanup0.visible = false;
+      					IMG_0641_cleanup.add(infospotIMG_0641_cleanup0);
+
+      infospotIMG_0641_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0640_cleanup');
+
+      });
+
+      viewer.add( IMG_0641_cleanup );
+
+      var IMG_0642_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0642_cleanup.jpg" );
+      			IMG_0642_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0642_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0642_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0642_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0642_cleanup0.position.set( -4790.86, -1411.32, 41.03 );
+      					infospotIMG_0642_cleanup0.visible = false;
+      					IMG_0642_cleanup.add(infospotIMG_0642_cleanup0);
+
+      infospotIMG_0642_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0638_cleanup');
+
+      });
+
+      var infospotIMG_0642_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0642_cleanup1.position.set( 4897.58, -940.72, 177.90 );
+      					infospotIMG_0642_cleanup1.visible = false;
+      					IMG_0642_cleanup.add(infospotIMG_0642_cleanup1);
+
+      infospotIMG_0642_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0643_cleanup');
+
+      });
+
+      var infospotIMG_0642_cleanup2 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_0642_cleanup2.position.set( -58.53, -741.89, 4940.14 );
+      					infospotIMG_0642_cleanup2.visible = false;
+      					IMG_0642_cleanup.add(infospotIMG_0642_cleanup2);
+
+      infospotIMG_0642_cleanup2.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0640_cleanup');
+
+      });
+
+      viewer.add( IMG_0642_cleanup );
+
+      var IMG_0643_cleanup = new PANOLENS.ImagePanorama( "panoramas/IMG_0643_cleanup.jpg" );
+      			IMG_0643_cleanup.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0643_cleanup.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0643_cleanup.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_0643_cleanup0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0643_cleanup0.position.set( 309.43, -820.27, 4914.65 );
+      					infospotIMG_0643_cleanup0.visible = false;
+      					IMG_0643_cleanup.add(infospotIMG_0643_cleanup0);
+
+      infospotIMG_0643_cleanup0.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0642_cleanup');
+
+      });
+
+      var infospotIMG_0643_cleanup1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_0643_cleanup1.position.set( -278.01, -413.28, -4967.53 );
+      					infospotIMG_0643_cleanup1.visible = false;
+      					IMG_0643_cleanup.add(infospotIMG_0643_cleanup1);
+
+      infospotIMG_0643_cleanup1.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0629_cleanup');
+
+      });
+
+      viewer.add( IMG_0643_cleanup );
+
+      var IMG_0561 = new PANOLENS.ImagePanorama( "panoramas/IMG_0561.jpg" );
+      			IMG_0561.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0561.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0561.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05610 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05610.position.set( 2699.57, -498.60, -4167.19 );
+      					infospotIMG_05610.visible = false;
+      					IMG_0561.add(infospotIMG_05610);
+
+      infospotIMG_05610.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0560');
+
+      });
+
+      var infospotIMG_05611 = new PANOLENS.Infospot( 512, hotspotIcons[2].data, true );
+      					infospotIMG_05611.position.set( -16.44, -684.65, 4949.12 );
+      					infospotIMG_05611.visible = false;
+      					IMG_0561.add(infospotIMG_05611);
+
+      infospotIMG_05611.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0630_cleanup');
+
+      });
+
+      viewer.add( IMG_0561 );
+
+      var IMG_0560 = new PANOLENS.ImagePanorama( "panoramas/IMG_0560.jpg" );
+      			IMG_0560.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0560.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0560.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05600 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05600.position.set( -4609.40, -537.49, 1834.29 );
+      					infospotIMG_05600.visible = false;
+      					IMG_0560.add(infospotIMG_05600);
+
+      infospotIMG_05600.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0561');
+
+      });
+
+      var infospotIMG_05601 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05601.position.set( 4624.70, -637.74, -1761.37 );
+      					infospotIMG_05601.visible = false;
+      					IMG_0560.add(infospotIMG_05601);
+
+      infospotIMG_05601.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0559');
+
+      });
+
+      viewer.add( IMG_0560 );
+
+      var IMG_0559 = new PANOLENS.ImagePanorama( "panoramas/IMG_0559.jpg" );
+      			IMG_0559.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0559.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0559.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05590 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05590.position.set( -4837.46, -871.61, 869.40 );
+      					infospotIMG_05590.visible = false;
+      					IMG_0559.add(infospotIMG_05590);
+
+      infospotIMG_05590.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0560');
+
+      });
+
+      var infospotIMG_05591 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05591.position.set( 3447.66, -509.35, 3572.39 );
+      					infospotIMG_05591.visible = false;
+      					IMG_0559.add(infospotIMG_05591);
+
+      infospotIMG_05591.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0558');
+
+      });
+
+      viewer.add( IMG_0559 );
+
+      var IMG_0558 = new PANOLENS.ImagePanorama( "panoramas/IMG_0558.jpg" );
+      			IMG_0558.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0558.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0558.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05580 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05580.position.set( -4318.50, -688.18, 2411.88 );
+      					infospotIMG_05580.visible = false;
+      					IMG_0558.add(infospotIMG_05580);
+
+      infospotIMG_05580.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0559');
+
+      });
+
+      var infospotIMG_05581 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05581.position.set( 4847.68, -564.76, -1062.01 );
+      					infospotIMG_05581.visible = false;
+      					IMG_0558.add(infospotIMG_05581);
+
+      infospotIMG_05581.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0557');
+
+      });
+
+      viewer.add( IMG_0558 );
+
+      var IMG_0557 = new PANOLENS.ImagePanorama( "panoramas/IMG_0557.jpg" );
+      			IMG_0557.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0557.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0557.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05570 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05570.position.set( -3337.29, -872.41, -3611.80 );
+      					infospotIMG_05570.visible = false;
+      					IMG_0557.add(infospotIMG_05570);
+
+      infospotIMG_05570.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0558');
+
+      });
+
+      var infospotIMG_05571 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05571.position.set( 4896.69, -484.99, -833.52 );
+      					infospotIMG_05571.visible = false;
+      					IMG_0557.add(infospotIMG_05571);
+
+      infospotIMG_05571.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0555');
+
+      });
+
+      viewer.add( IMG_0557 );
+
+      var IMG_0555 = new PANOLENS.ImagePanorama( "panoramas/IMG_0555.jpg" );
+      			IMG_0555.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0555.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0555.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05550 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05550.position.set( -1789.92, -590.26, 4619.75 );
+      					infospotIMG_05550.visible = false;
+      					IMG_0555.add(infospotIMG_05550);
+
+      infospotIMG_05550.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0557');
+
+      });
+
+      var infospotIMG_05551 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05551.position.set( 1804.44, -513.71, -4623.87 );
+      					infospotIMG_05551.visible = false;
+      					IMG_0555.add(infospotIMG_05551);
+
+      infospotIMG_05551.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0554');
+
+      });
+
+      var infospotIMG_05552 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_05552.position.set( 4780.17, -309.46, 1405.30 );
+      					infospotIMG_05552.visible = false;
+      					IMG_0555.add(infospotIMG_05552);
+
+      infospotIMG_05552.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0550');
+
+      });
+
+      viewer.add( IMG_0555 );
+
+      var IMG_0554 = new PANOLENS.ImagePanorama( "panoramas/IMG_0554.jpg" );
+      			IMG_0554.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0554.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0554.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05540 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05540.position.set( -2579.99, -553.46, 4237.11 );
+      					infospotIMG_05540.visible = false;
+      					IMG_0554.add(infospotIMG_05540);
+
+      infospotIMG_05540.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0555');
+
+      });
+
+      var infospotIMG_05541 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05541.position.set( 2925.84, -740.97, -3982.85 );
+      					infospotIMG_05541.visible = false;
+      					IMG_0554.add(infospotIMG_05541);
+
+      infospotIMG_05541.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0553');
+
+      });
+
+      viewer.add( IMG_0554 );
+
+      var IMG_0553 = new PANOLENS.ImagePanorama( "panoramas/IMG_0553.jpg" );
+      			IMG_0553.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0553.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0553.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05530 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05530.position.set( -2903.11, -475.41, 4038.28 );
+      					infospotIMG_05530.visible = false;
+      					IMG_0553.add(infospotIMG_05530);
+
+      infospotIMG_05530.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0554');
+
+      });
+
+      var infospotIMG_05531 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05531.position.set( 4091.28, -373.89, 2840.86 );
+      					infospotIMG_05531.visible = false;
+      					IMG_0553.add(infospotIMG_05531);
+
+      infospotIMG_05531.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0551');
+
+      });
+
+      viewer.add( IMG_0553 );
+
+      var IMG_0551 = new PANOLENS.ImagePanorama( "panoramas/IMG_0551.jpg" );
+      			IMG_0551.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0551.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0551.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05510 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_05510.position.set( 789.54, -415.21, -4912.01 );
+      					infospotIMG_05510.visible = false;
+      					IMG_0551.add(infospotIMG_05510);
+
+      infospotIMG_05510.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0553');
+
+      });
+
+      var infospotIMG_05511 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+      					infospotIMG_05511.position.set( -1871.05, -556.05, -4592.94 );
+      					infospotIMG_05511.visible = false;
+      					IMG_0551.add(infospotIMG_05511);
+
+      infospotIMG_05511.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0554');
+
+      });
+
+      var infospotIMG_05512 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05512.position.set( -4935.07, -598.07, 480.15 );
+      					infospotIMG_05512.visible = false;
+      					IMG_0551.add(infospotIMG_05512);
+
+      infospotIMG_05512.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0554');
+
+      });
+
+      viewer.add( IMG_0551 );
+
+      var IMG_0550 = new PANOLENS.ImagePanorama( "panoramas/IMG_0550.jpg" );
+      			IMG_0550.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			IMG_0550.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			IMG_0550.addEventListener('click', function(e){
+      			});
+
+
+      var infospotIMG_05500 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+      					infospotIMG_05500.position.set( 4964.07, -541.71, 54.03 );
+      					infospotIMG_05500.visible = false;
+      					IMG_0550.add(infospotIMG_05500);
+
+      infospotIMG_05500.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0551');
+
+      });
+
+      var infospotIMG_05501 = new PANOLENS.Infospot( 512, hotspotIcons[7].data, true );
+      					infospotIMG_05501.position.set( -4162.25, -422.00, -2723.80 );
+      					infospotIMG_05501.visible = false;
+      					IMG_0550.add(infospotIMG_05501);
+
+      infospotIMG_05501.addEventListener('click', function(){
+
+      ChangePanorama('IMG_0555');
+
+      });
+
+      viewer.add( IMG_0550 );
+
+      var 1 = new PANOLENS.ImagePanorama( "panoramas/1.jpg" );
+      			1.addEventListener('progress', function(e){
+      				$("#loading").show();
+      			});
+      			1.addEventListener('load', function(e){
+      				//$("#loading").fadeOut();
+      			});
+      			1.addEventListener('click', function(e){
+      			});
+
+
+      viewer.add( 1 );
+
+      $(document).ready(function(){ ChangePanorama('IMG_0544'); });
+
+
+      /*panoramas-end*/
+
+
+      			function hideTemp(){
+      				$("#tmp").fadeOut();
+      				setTimeout(function(){
+      					$("#tmpcontent").html("");
+      				},1000);
+      			}
+
+      			function showMedia(type, content){
+      				switch(type){
+      					case 1 :
+      						//Image
+      						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
+      						$("#tmp").fadeIn();
+      						break;
+      					case 2 :
+      						//Video
+      						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
+      						$("#tmp").fadeIn();
+      						break;
+      					case 3 :
+      						//Audio
+      						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
+      						$("#tmp").fadeIn();
+      						break;
+      					case 4 :
+      						//PDF
+      						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 99%;'></iframe>");
+      						$("#tmp").fadeIn();
+      						break;
+      				}
+      			}
+
+
+
+      			//Update Callback
+      			viewer.addUpdateCallback(function(){
+
+      				/*viewerupdatecallback*/
+      if(viewer.panorama == IMG_0544){
+      ShowMyInfospot(infospotIMG_05440, 'infospotIMG_05440');
+      }
+
+      if(viewer.panorama == IMG_0545){
+      ShowMyInfospot(infospotIMG_05450, 'infospotIMG_05450');
+      ShowMyInfospot(infospotIMG_05451, 'infospotIMG_05451');
+      }
+
+      if(viewer.panorama == IMG_0546){
+      ShowMyInfospot(infospotIMG_05460, 'infospotIMG_05460');
+      ShowMyInfospot(infospotIMG_05461, 'infospotIMG_05461');
+      }
+
+      if(viewer.panorama == IMG_0548){
+      ShowMyInfospot(infospotIMG_05480, 'infospotIMG_05480');
+      ShowMyInfospot(infospotIMG_05481, 'infospotIMG_05481');
+      }
+
+      if(viewer.panorama == IMG_0549){
+      ShowMyInfospot(infospotIMG_05490, 'infospotIMG_05490');
+      ShowMyInfospot(infospotIMG_05491, 'infospotIMG_05491');
+      }
+
+      if(viewer.panorama == IMG_0616_cleanup){
+      ShowMyInfospot(infospotIMG_0616_cleanup0, 'infospotIMG_0616_cleanup0');
+      ShowMyInfospot(infospotIMG_0616_cleanup1, 'infospotIMG_0616_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0617_cleanup){
+      ShowMyInfospot(infospotIMG_0617_cleanup0, 'infospotIMG_0617_cleanup0');
+      ShowMyInfospot(infospotIMG_0617_cleanup1, 'infospotIMG_0617_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0620_cleanup){
+      ShowMyInfospot(infospotIMG_0620_cleanup0, 'infospotIMG_0620_cleanup0');
+      ShowMyInfospot(infospotIMG_0620_cleanup1, 'infospotIMG_0620_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0621_cleanup){
+      ShowMyInfospot(infospotIMG_0621_cleanup0, 'infospotIMG_0621_cleanup0');
+      ShowMyInfospot(infospotIMG_0621_cleanup1, 'infospotIMG_0621_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0622_cleanup){
+      ShowMyInfospot(infospotIMG_0622_cleanup0, 'infospotIMG_0622_cleanup0');
+      ShowMyInfospot(infospotIMG_0622_cleanup1, 'infospotIMG_0622_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0623_cleanup){
+      ShowMyInfospot(infospotIMG_0623_cleanup0, 'infospotIMG_0623_cleanup0');
+      ShowMyInfospot(infospotIMG_0623_cleanup1, 'infospotIMG_0623_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0624_cleanup){
+      ShowMyInfospot(infospotIMG_0624_cleanup0, 'infospotIMG_0624_cleanup0');
+      ShowMyInfospot(infospotIMG_0624_cleanup1, 'infospotIMG_0624_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0625_cleanup){
+      ShowMyInfospot(infospotIMG_0625_cleanup0, 'infospotIMG_0625_cleanup0');
+      ShowMyInfospot(infospotIMG_0625_cleanup1, 'infospotIMG_0625_cleanup1');
+      ShowMyInfospot(infospotIMG_0625_cleanup2, 'infospotIMG_0625_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0626_cleanup){
+      ShowMyInfospot(infospotIMG_0626_cleanup0, 'infospotIMG_0626_cleanup0');
+      }
+
+      if(viewer.panorama == IMG_0627_cleanup){
+      ShowMyInfospot(infospotIMG_0627_cleanup0, 'infospotIMG_0627_cleanup0');
+      ShowMyInfospot(infospotIMG_0627_cleanup1, 'infospotIMG_0627_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0628_cleanup){
+      ShowMyInfospot(infospotIMG_0628_cleanup0, 'infospotIMG_0628_cleanup0');
+      ShowMyInfospot(infospotIMG_0628_cleanup1, 'infospotIMG_0628_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0629_cleanup){
+      ShowMyInfospot(infospotIMG_0629_cleanup0, 'infospotIMG_0629_cleanup0');
+      ShowMyInfospot(infospotIMG_0629_cleanup1, 'infospotIMG_0629_cleanup1');
+      ShowMyInfospot(infospotIMG_0629_cleanup2, 'infospotIMG_0629_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0630_cleanup){
+      ShowMyInfospot(infospotIMG_0630_cleanup0, 'infospotIMG_0630_cleanup0');
+      ShowMyInfospot(infospotIMG_0630_cleanup1, 'infospotIMG_0630_cleanup1');
+      ShowMyInfospot(infospotIMG_0630_cleanup2, 'infospotIMG_0630_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0631_cleanup){
+      ShowMyInfospot(infospotIMG_0631_cleanup0, 'infospotIMG_0631_cleanup0');
+      ShowMyInfospot(infospotIMG_0631_cleanup1, 'infospotIMG_0631_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0632_cleanup){
+      ShowMyInfospot(infospotIMG_0632_cleanup0, 'infospotIMG_0632_cleanup0');
+      ShowMyInfospot(infospotIMG_0632_cleanup1, 'infospotIMG_0632_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0633_cleanup){
+      ShowMyInfospot(infospotIMG_0633_cleanup0, 'infospotIMG_0633_cleanup0');
+      ShowMyInfospot(infospotIMG_0633_cleanup1, 'infospotIMG_0633_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0634_cleanup){
+      ShowMyInfospot(infospotIMG_0634_cleanup0, 'infospotIMG_0634_cleanup0');
+      ShowMyInfospot(infospotIMG_0634_cleanup1, 'infospotIMG_0634_cleanup1');
+      ShowMyInfospot(infospotIMG_0634_cleanup2, 'infospotIMG_0634_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0635_cleanup){
+      ShowMyInfospot(infospotIMG_0635_cleanup0, 'infospotIMG_0635_cleanup0');
+      }
+
+      if(viewer.panorama == IMG_0637_cleanup){
+      ShowMyInfospot(infospotIMG_0637_cleanup0, 'infospotIMG_0637_cleanup0');
+      }
+
+      if(viewer.panorama == IMG_0638_cleanup){
+      ShowMyInfospot(infospotIMG_0638_cleanup0, 'infospotIMG_0638_cleanup0');
+      ShowMyInfospot(infospotIMG_0638_cleanup1, 'infospotIMG_0638_cleanup1');
+      ShowMyInfospot(infospotIMG_0638_cleanup2, 'infospotIMG_0638_cleanup2');
+      ShowMyInfospot(infospotIMG_0638_cleanup3, 'infospotIMG_0638_cleanup3');
+      }
+
+      if(viewer.panorama == IMG_0639_cleanup){
+      ShowMyInfospot(infospotIMG_0639_cleanup0, 'infospotIMG_0639_cleanup0');
+      ShowMyInfospot(infospotIMG_0639_cleanup1, 'infospotIMG_0639_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0640_cleanup){
+      ShowMyInfospot(infospotIMG_0640_cleanup0, 'infospotIMG_0640_cleanup0');
+      ShowMyInfospot(infospotIMG_0640_cleanup1, 'infospotIMG_0640_cleanup1');
+      ShowMyInfospot(infospotIMG_0640_cleanup2, 'infospotIMG_0640_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0641_cleanup){
+      ShowMyInfospot(infospotIMG_0641_cleanup0, 'infospotIMG_0641_cleanup0');
+      }
+
+      if(viewer.panorama == IMG_0642_cleanup){
+      ShowMyInfospot(infospotIMG_0642_cleanup0, 'infospotIMG_0642_cleanup0');
+      ShowMyInfospot(infospotIMG_0642_cleanup1, 'infospotIMG_0642_cleanup1');
+      ShowMyInfospot(infospotIMG_0642_cleanup2, 'infospotIMG_0642_cleanup2');
+      }
+
+      if(viewer.panorama == IMG_0643_cleanup){
+      ShowMyInfospot(infospotIMG_0643_cleanup0, 'infospotIMG_0643_cleanup0');
+      ShowMyInfospot(infospotIMG_0643_cleanup1, 'infospotIMG_0643_cleanup1');
+      }
+
+      if(viewer.panorama == IMG_0561){
+      ShowMyInfospot(infospotIMG_05610, 'infospotIMG_05610');
+      ShowMyInfospot(infospotIMG_05611, 'infospotIMG_05611');
+      }
+
+      if(viewer.panorama == IMG_0560){
+      ShowMyInfospot(infospotIMG_05600, 'infospotIMG_05600');
+      ShowMyInfospot(infospotIMG_05601, 'infospotIMG_05601');
+      }
+
+      if(viewer.panorama == IMG_0559){
+      ShowMyInfospot(infospotIMG_05590, 'infospotIMG_05590');
+      ShowMyInfospot(infospotIMG_05591, 'infospotIMG_05591');
+      }
+
+      if(viewer.panorama == IMG_0558){
+      ShowMyInfospot(infospotIMG_05580, 'infospotIMG_05580');
+      ShowMyInfospot(infospotIMG_05581, 'infospotIMG_05581');
+      }
+
+      if(viewer.panorama == IMG_0557){
+      ShowMyInfospot(infospotIMG_05570, 'infospotIMG_05570');
+      ShowMyInfospot(infospotIMG_05571, 'infospotIMG_05571');
+      }
+
+      if(viewer.panorama == IMG_0555){
+      ShowMyInfospot(infospotIMG_05550, 'infospotIMG_05550');
+      ShowMyInfospot(infospotIMG_05551, 'infospotIMG_05551');
+      ShowMyInfospot(infospotIMG_05552, 'infospotIMG_05552');
+      }
+
+      if(viewer.panorama == IMG_0554){
+      ShowMyInfospot(infospotIMG_05540, 'infospotIMG_05540');
+      ShowMyInfospot(infospotIMG_05541, 'infospotIMG_05541');
+      }
+
+      if(viewer.panorama == IMG_0553){
+      ShowMyInfospot(infospotIMG_05530, 'infospotIMG_05530');
+      ShowMyInfospot(infospotIMG_05531, 'infospotIMG_05531');
+      }
+
+      if(viewer.panorama == IMG_0551){
+      ShowMyInfospot(infospotIMG_05510, 'infospotIMG_05510');
+      ShowMyInfospot(infospotIMG_05511, 'infospotIMG_05511');
+      ShowMyInfospot(infospotIMG_05512, 'infospotIMG_05512');
+      }
+
+      if(viewer.panorama == IMG_0550){
+      ShowMyInfospot(infospotIMG_05500, 'infospotIMG_05500');
+      ShowMyInfospot(infospotIMG_05501, 'infospotIMG_05501');
+      }
+
+      if(viewer.panorama == 1){
+      }
+      /*viewerupdatecallback-end*/
+
+
+      			});
+
+
+
+      			var hotspotsvisible = true;
+      			function ShowMyInfospot(hs, elid){
+      				var thehs = toScreenPosition(hs);
+      				if(thehs.z < 1){
+      					$("#" + elid).css({
+      						"top" : (thehs.y - ($("#" + elid).height()/2)) + "px",
+      						"left" : (thehs.x - ($("#" + elid).width()/2)) + "px",
+      					});
+      					if(hotspotsvisible)
+      						$("#" + elid).show();
+      				}else{
+      					$("#" + elid).hide();
+      				}
+
+      			}
+
+      			function toScreenPosition(obj)
+      			{
+      				var vector = new THREE.Vector3();
+      				var widthHalf = 0.5 * innerWidth;
+      				var heightHalf = 0.5 * innerHeight;
+
+      				//obj.updateMatrixWorld();
+      				vector.setFromMatrixPosition(obj.matrixWorld);
+
+
+      				vector.project(viewer.camera);
+
+      				vector.x = ( vector.x * widthHalf ) + widthHalf;
+      				vector.y = - ( vector.y * heightHalf ) + heightHalf;
+
+
+      				return {
+      					x: vector.x,
+      					y: vector.y,
+      					z: vector.z,
+      				};
+
+      			};
+
+      			var currentPanorama;
+      			function ChangePanorama(panorama){
+      				currentPanorama = panorama;
+      				HideInfospots();
+      				$("#loading").fadeIn();
+      				//$(".customhotspot").fadeOut();
+      				setTimeout(function(){
+      					viewer.setPanorama(window[panorama]);
+      				}, 100);
+      				setTimeout(function(){
+      					$("#" + panorama).fadeIn();
+      					$("#loading").fadeOut();
+      				}, 1000);
+
+      			}
+
+
+
+      			function HideInfospots(){
+      				$(".customhotspot").fadeOut();
+      			}
+
+      			/*customjs*/
+      function chclickinfospotIMG_05440(){
+      ChangePanorama('IMG_0545');
+
+      }
+
+      function chclickinfospotIMG_05450(){
+      ChangePanorama('IMG_0544');
+
+      }
+
+      function chclickinfospotIMG_05451(){
+      ChangePanorama('IMG_0546');
+
+      }
+
+      function chclickinfospotIMG_05460(){
+      ChangePanorama('IMG_0545');
+
+      }
+
+      function chclickinfospotIMG_05461(){
+      ChangePanorama('IMG_0548');
+
+      }
+
+      function chclickinfospotIMG_05480(){
+      ChangePanorama('IMG_0549');
+
+      }
+
+      function chclickinfospotIMG_05481(){
+      ChangePanorama('IMG_0546');
+
+      }
+
+      function chclickinfospotIMG_05490(){
+      ChangePanorama('IMG_0616_cleanup');
+
+      }
+
+      function chclickinfospotIMG_05491(){
+      ChangePanorama('IMG_0548');
+
+      }
+
+      function chclickinfospotIMG_0616_cleanup0(){
+      ChangePanorama('IMG_0617_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0616_cleanup1(){
+      ChangePanorama('IMG_0549');
+
+      }
+
+      function chclickinfospotIMG_0617_cleanup0(){
+      ChangePanorama('IMG_0620_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0617_cleanup1(){
+      ChangePanorama('IMG_0616_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0620_cleanup0(){
+      ChangePanorama('IMG_0617_cleanup');
+
+      ChangePanorama('IMG_0617_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0620_cleanup1(){
+      ChangePanorama('IMG_0621_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0621_cleanup0(){
+      ChangePanorama('IMG_0622_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0621_cleanup1(){
+      ChangePanorama('IMG_0620_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0622_cleanup0(){
+      ChangePanorama('IMG_0621_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0622_cleanup1(){
+      ChangePanorama('IMG_0623_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0623_cleanup0(){
+      ChangePanorama('IMG_0622_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0623_cleanup1(){
+      ChangePanorama('IMG_0624_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0624_cleanup0(){
+      ChangePanorama('IMG_0623_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0624_cleanup1(){
+      ChangePanorama('IMG_0625_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0625_cleanup0(){
+      ChangePanorama('IMG_0624_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0625_cleanup1(){
+      ChangePanorama('IMG_0626_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0625_cleanup2(){
+      ChangePanorama('IMG_0627_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0626_cleanup0(){
+      ChangePanorama('IMG_0625_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0627_cleanup0(){
+      ChangePanorama('IMG_0625_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0627_cleanup1(){
+      ChangePanorama('IMG_0628_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0628_cleanup0(){
+      ChangePanorama('IMG_0627_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0628_cleanup1(){
+      ChangePanorama('IMG_0629_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0629_cleanup0(){
+      ChangePanorama('IMG_0628_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0629_cleanup1(){
+      ChangePanorama('IMG_0630_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0629_cleanup2(){
+      ChangePanorama('IMG_0643_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0630_cleanup0(){
+      ChangePanorama('IMG_0629_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0630_cleanup1(){
+      ChangePanorama('IMG_0631_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0630_cleanup2(){
+      ChangePanorama('IMG_0561');
+
+      }
+
+      function chclickinfospotIMG_0631_cleanup0(){
+      ChangePanorama('IMG_0630_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0631_cleanup1(){
+      ChangePanorama('IMG_0632_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0632_cleanup0(){
+      ChangePanorama('IMG_0631_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0632_cleanup1(){
+      ChangePanorama('IMG_0633_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0633_cleanup0(){
+      ChangePanorama('IMG_0632_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0633_cleanup1(){
+      ChangePanorama('IMG_0634_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0634_cleanup0(){
+      ChangePanorama('IMG_0633_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0634_cleanup1(){
+      ChangePanorama('IMG_0635_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0634_cleanup2(){
+      ChangePanorama('IMG_0638_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0635_cleanup0(){
+      ChangePanorama('IMG_0634_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0637_cleanup0(){
+      ChangePanorama('IMG_0638_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0638_cleanup0(){
+      ChangePanorama('IMG_0634_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0638_cleanup1(){
+      ChangePanorama('IMG_0637_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0638_cleanup2(){
+      ChangePanorama('IMG_0639_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0638_cleanup3(){
+      ChangePanorama('IMG_0642_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0639_cleanup0(){
+      ChangePanorama('IMG_0638_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0639_cleanup1(){
+      ChangePanorama('IMG_0640_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0640_cleanup0(){
+      ChangePanorama('IMG_0639_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0640_cleanup1(){
+      ChangePanorama('IMG_0641_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0640_cleanup2(){
+      ChangePanorama('IMG_0642_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0641_cleanup0(){
+      ChangePanorama('IMG_0640_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0642_cleanup0(){
+      ChangePanorama('IMG_0638_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0642_cleanup1(){
+      ChangePanorama('IMG_0643_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0642_cleanup2(){
+      ChangePanorama('IMG_0640_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0643_cleanup0(){
+      ChangePanorama('IMG_0642_cleanup');
+
+      }
+
+      function chclickinfospotIMG_0643_cleanup1(){
+      ChangePanorama('IMG_0629_cleanup');
+
+      }
+
+      function chclickinfospotIMG_05610(){
+      ChangePanorama('IMG_0560');
+
+      }
+
+      function chclickinfospotIMG_05611(){
+      ChangePanorama('IMG_0630_cleanup');
+
+      }
+
+      function chclickinfospotIMG_05600(){
+      ChangePanorama('IMG_0561');
+
+      }
+
+      function chclickinfospotIMG_05601(){
+      ChangePanorama('IMG_0559');
+
+      }
+
+      function chclickinfospotIMG_05590(){
+      ChangePanorama('IMG_0560');
+
+      }
+
+      function chclickinfospotIMG_05591(){
+      ChangePanorama('IMG_0558');
+
+      }
+
+      function chclickinfospotIMG_05580(){
+      ChangePanorama('IMG_0559');
+
+      }
+
+      function chclickinfospotIMG_05581(){
+      ChangePanorama('IMG_0557');
+
+      }
+
+      function chclickinfospotIMG_05570(){
+      ChangePanorama('IMG_0558');
+
+      }
+
+      function chclickinfospotIMG_05571(){
+      ChangePanorama('IMG_0555');
+
+      }
+
+      function chclickinfospotIMG_05550(){
+      ChangePanorama('IMG_0557');
+
+      }
+
+      function chclickinfospotIMG_05551(){
+      ChangePanorama('IMG_0554');
+
+      }
+
+      function chclickinfospotIMG_05552(){
+      ChangePanorama('IMG_0550');
+
+      }
+
+      function chclickinfospotIMG_05540(){
+      ChangePanorama('IMG_0555');
+
+      }
+
+      function chclickinfospotIMG_05541(){
+      ChangePanorama('IMG_0553');
+
+      }
+
+      function chclickinfospotIMG_05530(){
+      ChangePanorama('IMG_0554');
+
+      }
+
+      function chclickinfospotIMG_05531(){
+      ChangePanorama('IMG_0551');
+
+      }
+
+      function chclickinfospotIMG_05510(){
+      ChangePanorama('IMG_0553');
+
+      }
+
+      function chclickinfospotIMG_05511(){
+      ChangePanorama('IMG_0554');
+
+      }
+
+      function chclickinfospotIMG_05512(){
+      ChangePanorama('IMG_0554');
+
+      }
+
+      function chclickinfospotIMG_05500(){
+      ChangePanorama('IMG_0551');
+
+      }
+
+      function chclickinfospotIMG_05501(){
+      ChangePanorama('IMG_0555');
+
+      }
+      /*customjs-end*/
+    </script>
+  </body>
+</html>
